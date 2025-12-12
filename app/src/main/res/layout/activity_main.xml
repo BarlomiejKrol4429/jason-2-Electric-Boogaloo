@@ -49,7 +49,7 @@
         android:id="@+id/buttonWyslij"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dalej"
+        android:text="Wyślij swój wynik"
         />
 
 </LinearLayout>

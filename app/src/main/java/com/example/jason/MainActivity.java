@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonDalej;
     Button buttonWyslij;
     int aktualnePytanie = 0;
+    int sumaPonktow = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         radioButton_c = findViewById(R.id.radioButton3);
         buttonDalej = findViewById(R.id.buttonDalej);
         buttonWyslij = findViewById(R.id.buttonWyslij);
+        buttonWyslij.setEnabled(false);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -89,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if(sprawdzOdp(aktualnePytanie)) {
+                            sumaPonktow ++;
                             Toast.makeText(MainActivity.this, "Dobrze.", Toast.LENGTH_SHORT).show();
                         }else{
                             Toast.makeText(MainActivity.this, "Źle.", Toast.LENGTH_SHORT).show();
@@ -100,9 +103,9 @@ public class MainActivity extends AppCompatActivity {
                             //TODO: koniec testu
                             //podliczenie puntów znika wszystko wysyłamy wynik sms
                             radioGroup.setVisibility((View.INVISIBLE));
-                            textViewPytanie.setText("Koniec tekstu, Punkty: ");
+                            textViewPytanie.setText("Koniec tekstu, Punkty: " + sumaPonktow);
                             buttonDalej.setEnabled(false);
-                            buttonwyslij.set_text("Wyślij swój wynik");
+                            buttonWyslij.setEnabled(true);
                         }
                     }
                 }
