@@ -41,13 +41,13 @@
 
     <Button
         android:id="@+id/buttonDalej"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dalej"
+        android:text="Następne pytanie"
         />
     <Button
         android:id="@+id/buttonWyslij"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Wyślij swój wynik"
         />

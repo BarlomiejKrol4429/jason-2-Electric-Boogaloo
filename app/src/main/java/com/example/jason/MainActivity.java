@@ -1,5 +1,6 @@
 package com.example.jason;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -107,6 +108,19 @@ public class MainActivity extends AppCompatActivity {
                             buttonDalej.setEnabled(false);
                             buttonWyslij.setEnabled(true);
                         }
+                    }
+                }
+        );
+        buttonWyslij.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intentWyslij = new Intent();
+                        intentWyslij.setAction(Intent.ACTION_SEND);
+                        intentWyslij.putExtra(Intent.EXTRA_TEXT, "Otrzymano: "+ sumaPonktow+ " punktów");
+                        intentWyslij.setType("text/plain");
+                        Intent intentudostepniona = Intent.createChooser(intentWyslij, null);
+                        startActivity(intentudostepniona);
                     }
                 }
         );
